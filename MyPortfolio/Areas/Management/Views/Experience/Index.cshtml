@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MyPortfolio.Models.Experience>
+@{
+    ViewData["Title"] = "Experiences";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-right">
+            <a asp-action="Create" class="btn btn-info btn-fill">
+                <span class="ti-plus"></span>
+                Create a New Experience
+            </a>
+        </div>
+        <hr />
+        <div class="card">
+            <div class="header">
+                <h4 class="title">@ViewData["Title"]</h4>
+                <p class="category">Here are listing experience knowledges.</p>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center">@Html.DisplayNameFor(e => e.Id)</th>
+                            <th>@Html.DisplayNameFor(e => e.InstituteName)</th>
+                            <th>@Html.DisplayNameFor(e => e.Caption)</th>
+                            <th class="text-center">@Html.DisplayNameFor(e => e.StartedAt)</th>
+                            <th class="text-center">@Html.DisplayNameFor(e => e.FinishedAt)</th>
+                            <th>@Html.DisplayNameFor(e => e.CreatedAt)</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@item.Id</td>
+                                <td>@item.InstituteName</td>
+                                <td>@item.Caption</td>
+                                <td class="text-center">@item.StartedAt.Year</td>
+                                <td class="text-center">
+                                    @if (item.FinishedAt.HasValue == true)
+                                    {
+                                        @item.FinishedAt.Value.Year
+                                    }
+                                </td>
+                                <td>@item.CreatedAt</td>
+                                <td class="text-center">
+                                    <partial name="_ActionButtonsPartial" model="item.Id" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

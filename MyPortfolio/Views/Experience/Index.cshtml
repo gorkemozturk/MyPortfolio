@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MyPortfolio.Models.Experience>
+@{
+    ViewData["Title"] = "Experience";
+    int counter = 1;
+}
+
+<!-- Vcard Page Content -->
+<div class="vcard-page-content-wrapper d-flex align-items-end">
+    <div class="page-content">
+
+        <!-- Work Experience Area -->
+        <div class="work-experience-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Section Heading -->
+                    <div class="col-12">
+                        <div class="section-heading">
+                            <h2>@ViewData["Title"]</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="work-experience-timeline-wrapper">
+                            <!-- Timeline Row -->
+                            <div class="timeline-row"></div>
+
+                            @foreach (var item in Model)
+                            {
+                                <!-- Single Work Experience -->
+                                <div class="single-experience-timeline active @Html.Raw((counter % 2 == 0) ? "even-item" : "odd-item")">
+                                    <h5>
+                                        @item.StartedAt.Year -
+                                        @if (item.FinishedAt.HasValue)
+                                        {
+                                            @item.FinishedAt.Value.Year
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw("Present")
+                                        }
+                                    </h5>
+                                    <h4>@item.InstituteName</h4>
+                                    <h6>@item.Caption</h6>
+                                    <p>@item.Body</p>
+                                </div>
+                                counter++;
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <partial name="_FooterPartial" />
+        </div>
+
+    </div>
+</div>

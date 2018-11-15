@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.Models
 {
-    public class Education
+    public class Experience
     {
         [Display(Name = "ID")]
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace MyPortfolio.Models
         public string InstituteName { get; set; }
 
         [Required]
-        public string Degree { get; set; }
+        public string Caption { get; set; }
 
         public string Body { get; set; }
 
