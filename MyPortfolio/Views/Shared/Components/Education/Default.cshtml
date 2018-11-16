@@ -1,4 +1,5 @@
-﻿@{ 
+﻿@model IEnumerable<MyPortfolio.Models.Education>
+@{ 
     int counter = 1;
 }
 <section class="colorlib-education" data-section="education">
@@ -19,7 +20,7 @@
                                 <div class="panel-heading" role="tab" id="@Html.Raw("heading" + counter)">
                                     <h4 class="panel-title">
                                         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="@Html.Raw("#collapse" + counter)" aria-expanded="true" aria-controls="@Html.Raw("collapse" + counter)">
-                                            @item.InstituteName (@item.StartedAt.Year-@if (item.FinishedAt == null) { @Html.Raw("Present") } else { @item.FinishedAt.Year })
+                                            @item.InstituteName (@item.StartedAt.Year-@if (item.FinishedAt.HasValue == false) { @Html.Raw("Present") } else { @item.FinishedAt.Value.Year })
                                         </a>
                                     </h4>
                                 </div>
@@ -29,10 +30,8 @@
                                             <div class="col-md-12">
                                                 <strong>@item.InstituteName</strong> <br />
                                                 @item.Degree <br />
-                                                <small>Started At: @item.StartedAt.Year - Finished At: @if (item.FinishedAt == null) { @Html.Raw("Present") } else { @item.FinishedAt.Year }</small>
-
+                                                <small>Started At: @item.StartedAt.Year - Finished At: @if (item.FinishedAt.HasValue == false) { @Html.Raw("Present") } else { @item.FinishedAt.Value.Year }</small>
                                                 <hr />
-
                                                 <p>@item.Body</p>
                                             </div>
                                         </div>

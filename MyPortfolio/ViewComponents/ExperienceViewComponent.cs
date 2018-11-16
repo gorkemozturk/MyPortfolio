@@ -19,7 +19,7 @@ namespace MyPortfolio.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var experiences = await _context.Experiences.OrderBy(e => e.StartedAt).ToListAsync();
+            var experiences = await _context.Experiences.OrderByDescending(e => e.StartedAt).ToListAsync();
 
             return View(experiences);
         }

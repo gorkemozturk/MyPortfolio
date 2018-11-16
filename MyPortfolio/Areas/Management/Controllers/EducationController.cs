@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Data;
 using MyPortfolio.Models;
+using MyPortfolio.Utilities;
 
 namespace MyPortfolio.Areas.Management.Controllers
 {
     [Area("Management")]
+    [Authorize(Roles = StaticEnvironments.Administrator)]
     public class EducationController : Controller
     {
         private readonly ApplicationDbContext _context;
