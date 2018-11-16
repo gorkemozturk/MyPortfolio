@@ -1,35 +1,4 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-
-<!-- Vcard Page Content -->
-<div class="vcard-page-content-wrapper d-flex align-items-end">
-    <div class="page-content">
-
-        <!-- Hero Content -->
-        <div class="hero-area horizontal clearfix">
-            <div class="hero-content">
-                <h5>Hello I’m</h5>
-                <h2>Maria Smith</h2>
-                <h3>Digital Designer &amp; Illustrator</h3>
-                <!-- Contact Info -->
-                <div class="contact-info mt-30">
-                    <a href="#"><img src="img/core-img/envelope2.png" alt=""> contactme@templatename.com</a>
-                    <a href="#"><img src="img/core-img/phone-call2.png" alt=""> +76 6524 567862 763</a>
-                    <a href="#"><img src="img/core-img/monitor2.png" alt=""> www.mytemplatename.com</a>
-                </div>
-                <!-- Social Info -->
-                <div class="social-info mt-30">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <partial name="_FooterPartial" />
-        </div>
-
-    </div>
-</div>
-
+﻿@await (Component.InvokeAsync<MyPortfolio.ViewComponents.AboutViewComponent>())
+@await (Component.InvokeAsync<MyPortfolio.ViewComponents.EducationViewComponent>())
+@await (Component.InvokeAsync<MyPortfolio.ViewComponents.ExperienceViewComponent>())
+@await (Component.InvokeAsync<MyPortfolio.ViewComponents.ContactViewComponent>())

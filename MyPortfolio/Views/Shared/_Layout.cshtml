@@ -1,66 +1,74 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
+﻿<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!-- Title -->
-    <title>@ViewData["Title"] - My Personal Website</title>
+    <title>My Personal Website</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
 
-
-    <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="~/style.css">
-
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="~/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="~/css/flexslider.css">
+    <!-- Flaticons  -->
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- Modernizr JS -->
+    <script src="~/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
 </head>
-
-<body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-
-    <div class="vcard-main-wrapper">
-        <div class="vcard-content-wrapper">
-
-            <!-- Contact Button -->
-            <div class="horizontal-contact-btn">
-                <a href="#" class="btn vcard-btn contact-btn"><i class="fa fa-envelope-o"></i><span>Available for freelance work</span></a>
-            </div>
-
-            <!-- Header Area -->
-            <header class="header_area">
-                <!-- Logo -->
-                <div class="logo d-flex justify-content-center align-items-center">
-                    <a href="index-horizontal-about.html"><img src="img/core-img/logo2.png" alt=""></a>
-                    <!-- Navbar Toggle -->
-                    <div class="nav-toggle">
-                        <i class="fa fa-bars"></i>
-                    </div>
+<body style="font-family: 'Roboto', sans-serif;">
+    <div id="colorlib-page">
+        <div class="container-wrap">
+            <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+            <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+                <div class="text-center">
+                    <h1 id="colorlib-logo"><a href="index.html">Görkem Öztürk</a></h1>
+                    <span class="position">Software Engineer</span>
                 </div>
+                <partial name="_NavigationPartial" />
+                <partial name="_FooterPartial" />
+            </aside>
+            <div id="colorlib-main">
+                @RenderBody()
+            </div><!-- end:colorlib-main -->
+        </div><!-- end:container-wrap -->
+    </div><!-- end:colorlib-page -->
 
-                <!-- Menu -->
-                <partial name="_MenuPartial" />
-            </header>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="~/js/jquery.flexslider-min.js"></script>
+    <!-- Owl carousel -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!-- Counters -->
+    <script src="~/js/jquery.countTo.js"></script>
 
-            @RenderBody()
 
-        </div>
-    </div>
-
-    <!-- ##### All Javascript Files ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="~/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="~/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="~/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="~/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="~/js/active.js"></script>
+    <!-- MAIN JS -->
+    <script src="~/js/main.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

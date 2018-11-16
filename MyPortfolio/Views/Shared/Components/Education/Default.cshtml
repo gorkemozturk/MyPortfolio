@@ -1,0 +1,49 @@
+﻿@{ 
+    int counter = 1;
+}
+<section class="colorlib-education" data-section="education">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span class="heading-meta">Education</span>
+                <h2 class="colorlib-heading animate-box">Education</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                <div class="fancy-collapse-panel">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        @foreach (var item in Model)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="@Html.Raw("heading" + counter)">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="@Html.Raw("#collapse" + counter)" aria-expanded="true" aria-controls="@Html.Raw("collapse" + counter)">
+                                            @item.InstituteName (@item.StartedAt.Year-@if (item.FinishedAt == null) { @Html.Raw("Present") } else { @item.FinishedAt.Year })
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="@Html.Raw("collapse" + counter)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("#heading" + counter)">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <strong>@item.InstituteName</strong> <br />
+                                                @item.Degree <br />
+                                                <small>Started At: @item.StartedAt.Year - Finished At: @if (item.FinishedAt == null) { @Html.Raw("Present") } else { @item.FinishedAt.Year }</small>
+
+                                                <hr />
+
+                                                <p>@item.Body</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            counter++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
