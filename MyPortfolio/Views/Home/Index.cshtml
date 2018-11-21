@@ -1,4 +1,9 @@
-﻿@await (Component.InvokeAsync<MyPortfolio.ViewComponents.AboutViewComponent>())
+﻿@{ 
+    ViewData["Title"] = "Welcome";
+}
+
+@await (Component.InvokeAsync<MyPortfolio.ViewComponents.AboutViewComponent>())
 @await (Component.InvokeAsync<MyPortfolio.ViewComponents.EducationViewComponent>())
 @await (Component.InvokeAsync<MyPortfolio.ViewComponents.ExperienceViewComponent>())
+@await (Component.InvokeAsync<MyPortfolio.ViewComponents.WorkViewComponent>())
 @await (Component.InvokeAsync<MyPortfolio.ViewComponents.ContactViewComponent>())

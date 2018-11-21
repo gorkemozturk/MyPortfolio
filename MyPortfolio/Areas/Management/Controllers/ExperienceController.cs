@@ -98,7 +98,7 @@ namespace MyPortfolio.Areas.Management.Controllers
         {
             var experience = await _context.Experiences.FindAsync(id);
 
-            _context.Remove(experience);
+            _context.Experiences.Remove(experience);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

@@ -1,0 +1,72 @@
+﻿@model MyPortfolio.Models.Work
+@{
+    ViewData["Title"] = "Update the Work";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">@ViewData["Title"]</h4>
+            </div>
+            <div class="content">
+                <form class="post" asp-antiforgery="true">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Name"></label>
+                                <input asp-for="Name" class="form-control border-input">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Language"></label>
+                                <input asp-for="Language" class="form-control border-input">
+                                <span asp-validation-for="Language" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Source"></label>
+                                <input asp-for="Source" class="form-control border-input">
+                                <span asp-validation-for="Source" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="StartedAt"></label>
+                                <input asp-for="StartedAt" class="form-control border-input">
+                                <span asp-validation-for="StartedAt" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="FinishedAt"></label>
+                                <input asp-for="FinishedAt" class="form-control border-input">
+                                <span asp-validation-for="FinishedAt" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Body"></label>
+                                <textarea asp-for="Body" rows="5" class="form-control border-input"></textarea>
+                                <span asp-validation-for="Body" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="">
+                        <button asp-route-id="@Model.Id" type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
+                        <a asp-action="Index" class="btn btn-default btn-fill btn-wd">Back To List</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

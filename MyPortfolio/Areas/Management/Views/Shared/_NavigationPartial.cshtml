@@ -20,7 +20,13 @@
     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Experience" ? "active" : "")">
         <a asp-action="Index" asp-controller="Experience" asp-area="Management">
             <i class="ti-medall"></i>
-            <p>Experience</p>
+            <p>Experiences</p>
+        </a>
+    </li>
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Work" ? "active" : "")">
+        <a asp-action="Index" asp-controller="Work" asp-area="Management">
+            <i class="ti-folder"></i>
+            <p>Works</p>
         </a>
     </li>
     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "User" ? "active" : "")">

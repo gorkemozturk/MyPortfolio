@@ -13,20 +13,20 @@ namespace MyPortfolio.Areas.Management.Controllers
 {
     [Area("Management")]
     [Authorize(Roles = StaticEnvironments.Administrator)]
-    public class ResumeController : Controller
+    public class WorkController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ResumeController(ApplicationDbContext context)
+        public WorkController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            var resumes = await _context.Resumes.ToListAsync();
+            var works = await _context.Works.ToListAsync();
 
-            return View(resumes);
+            return View(works);
         }
 
         public IActionResult Create()
@@ -36,14 +36,14 @@ namespace MyPortfolio.Areas.Management.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Resume resume)
+        public async Task<IActionResult> Create(Work work)
         {
             if (!ModelState.IsValid)
-                return View(resume);
+                return NotFound();
 
-            resume.CreatedAt = DateTime.Now;
+            work.CreatedAt = DateTime.Now;
 
-            _context.Resumes.Add(resume);
+            await _context.Works.AddAsync(work);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -54,26 +54,26 @@ namespace MyPortfolio.Areas.Management.Controllers
             if (id == null)
                 return NotFound();
 
-            var resume = await _context.Resumes.FindAsync(id);
+            var work = await _context.Works.FindAsync(id);
 
-            if (resume == null)
+            if (work == null)
                 return NotFound();
 
-            return View(resume);
+            return View(work);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, Resume resume)
+        public async Task<IActionResult> Update(int id, Work work)
         {
-            if (id != resume.Id)
+            if (id != work.Id)
                 return NotFound();
 
             if (!ModelState.IsValid)
-                return View(resume);
+                return View(work);
 
-            _context.Entry(resume).State = EntityState.Modified;
-            _context.Entry(resume).Property("CreatedAt").IsModified = false;
+            _context.Entry(work).State = EntityState.Modified;
+            _context.Entry(work).Property("CreatedAt").IsModified = false;
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -84,21 +84,21 @@ namespace MyPortfolio.Areas.Management.Controllers
             if (id == null)
                 return NotFound();
 
-            var resume = await _context.Resumes.FindAsync(id);
+            var work = await _context.Works.FindAsync(id);
 
-            if (resume == null)
+            if (work == null)
                 return NotFound();
 
-            return View(resume);
+            return View(work);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int id)
         {
-            var resume = await _context.Resumes.FindAsync(id);
+            var work = await _context.Works.FindAsync(id);
 
-            _context.Resumes.Remove(resume);
+            _context.Works.Remove(work);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

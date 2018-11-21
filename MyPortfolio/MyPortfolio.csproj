@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20181121181524_CreateWorksTable.cs" />
+    <Compile Remove="Migrations\20181121181524_CreateWorksTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\style.css" />
     <Content Remove="wwwroot\style.css.map" />
   </ItemGroup>

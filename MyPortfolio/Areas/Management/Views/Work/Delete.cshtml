@@ -1,0 +1,66 @@
+﻿@model MyPortfolio.Models.Work
+@{
+    ViewData["Title"] = "Delete the Work";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">@ViewData["Title"]</h4>
+            </div>
+            <div class="content">
+                <form class="post" asp-antiforgery="true">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Name"></label>
+                                <input readonly asp-for="Name" class="form-control border-input">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Language"></label>
+                                <input readonly asp-for="Language" class="form-control border-input">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Source"></label>
+                                <input readonly asp-for="Source" class="form-control border-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="StartedAt"></label>
+                                <input readonly asp-for="StartedAt" class="form-control border-input">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="FinishedAt"></label>
+                                <input readonly asp-for="FinishedAt" class="form-control border-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Body"></label>
+                                <textarea readonly asp-for="Body" rows="5" class="form-control border-input"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="">
+                        <button asp-route-id="@Model.Id" type="submit" class="btn btn-danger btn-fill btn-wd">Delete</button>
+                        <a asp-action="Index" class="btn btn-default btn-fill btn-wd">Back To List</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

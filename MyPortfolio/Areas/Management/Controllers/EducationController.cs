@@ -98,7 +98,7 @@ namespace MyPortfolio.Areas.Management.Controllers
         {
             var education = await _context.Educations.FindAsync(id);
 
-            _context.Remove(education);
+            _context.Educations.Remove(education);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

@@ -20,5 +20,6 @@ namespace MyPortfolio.Data
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Work> Works { get; set; }
     }
 }
