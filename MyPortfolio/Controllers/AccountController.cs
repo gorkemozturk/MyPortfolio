@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Data;
+using MyPortfolio.Models;
 using MyPortfolio.Models.ViewModels.Account;
 using MyPortfolio.Utilities;
 
@@ -38,10 +39,11 @@ namespace MyPortfolio.Controllers
             if (!ModelState.IsValid)
                 return View(registration);
 
-            var user = new IdentityUser()
+            var user = new ApplicationUser()
             {
-                UserName = registration.UserName,
-                Email = registration.Email
+                UserName = registration.Email,
+                Email = registration.Email,
+                CreatedAt = DateTime.Now
             };
 
             var result = await _userManager.CreateAsync(user, registration.Password);

@@ -16,10 +16,6 @@
             <div class="col-md-12 animate-box" data-animate-effect="fadeInRight">
                 <form asp-antiforgery="true" method="post" asp-action="Register" asp-controller="Account">
                     <div class="form-group">
-                        <input class="form-control" asp-for="UserName" placeholder="User Name" autocomplete="off">
-                        <span class="text-danger" asp-validation-for="UserName"></span>
-                    </div>
-                    <div class="form-group">
                         <input class="form-control" asp-for="Email" placeholder="E-Mail" autocomplete="off">
                         <span class="text-danger" asp-validation-for="Email"></span>
                     </div>

@@ -1,4 +1,4 @@
-﻿@model MyPortfolio.Models.ViewModels.UserViewModel
+﻿@model IEnumerable<MyPortfolio.Models.ApplicationUser>
 @{
     ViewData["Title"] = "Users";
 }
@@ -21,19 +21,23 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>User Name</th>
-                            <th>E-Mail</th>
+                            <th>@Html.DisplayNameFor(u => u.FirstName)</th>
+                            <th>@Html.DisplayNameFor(u => u.LastName)</th>
+                            <th>@Html.DisplayNameFor(u => u.Email)</th>
+                            <th>@Html.DisplayNameFor(u => u.IsAuthorized)</th>
+                            <th>@Html.DisplayNameFor(u => u.CreatedAt)</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Users)
+                        @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>@item.Id</td>
-                            <td>@item.NormalizedUserName</td>
+                        <tr class="@if (item.LockoutEnd != null || item.LockoutEnd > DateTime.Now) { @Html.Raw("table-danger") } ">
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
                             <td>@item.NormalizedEmail</td>
+                            <td>@item.IsAuthorized</td>
+                            <td>@item.CreatedAt</td>
                             <td class="text-center">
                                 <a href="@Url.Action("Update/" + item.Id)" class="btn btn-info btn-simple btn-icon">
                                     <i class="ti-reload"></i>

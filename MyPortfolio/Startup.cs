@@ -33,6 +33,7 @@ namespace MyPortfolio
                 (options => options.UseSqlServer(connection));
 
             services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
         }
 
