@@ -18,5 +18,6 @@ namespace MyPortfolio.Data
         public DbSet<Education> Educations { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Resume> Resumes { get; set; }
     }
 }

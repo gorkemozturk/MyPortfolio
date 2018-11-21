@@ -5,19 +5,25 @@
             <p>Dashboard</p>
         </a>
     </li>
-    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Education" ? "active" : "")">
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Resumes" ? "active" : "")">
+        <a asp-action="Index" asp-controller="Resume" asp-area="Management">
+            <i class="ti-info-alt"></i>
+            <p>Resumes</p>
+        </a>
+    </li>
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Educations" ? "active" : "")">
         <a asp-action="Index" asp-controller="Education" asp-area="Management">
             <i class="ti-pencil"></i>
             <p>Education</p>
         </a>
     </li>
-    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Experience" ? "active" : "")">
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Experiences" ? "active" : "")">
         <a asp-action="Index" asp-controller="Experience" asp-area="Management">
             <i class="ti-medall"></i>
             <p>Experience</p>
         </a>
     </li>
-    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "User" ? "active" : "")">
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Users" ? "active" : "")">
         <a asp-action="Index" asp-controller="User" asp-area="Management">
             <i class="ti-user"></i>
             <p>Users</p>

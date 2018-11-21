@@ -1,0 +1,65 @@
+﻿@model MyPortfolio.Models.Resume
+@{
+    ViewData["Title"] = "Delete the Existing Resume";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">@ViewData["Title"]</h4>
+            </div>
+            <div class="content">
+                <form class="post" asp-antiforgery="true">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="FirstName"></label>
+                                <input readonly asp-for="FirstName" class="form-control border-input">
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="LastName"></label>
+                                <input readonly asp-for="LastName" class="form-control border-input">
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CurriculumVitae"></label>
+                                <input readonly asp-for="CurriculumVitae" class="form-control border-input">
+                                <span asp-validation-for="CurriculumVitae" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Description"></label>
+                                <textarea readonly asp-for="Description" rows="5" class="form-control border-input"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input disabled asp-for="IsActive">
+                                <label asp-for="IsActive"></label>
+                                <span asp-validation-for="IsActive" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="">
+                        <button asp-route-id="@Model.Id" type="submit" class="btn btn-danger btn-fill btn-wd">Delete</button>
+                        <a asp-action="Index" class="btn btn-default btn-fill btn-wd">Back To List</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
