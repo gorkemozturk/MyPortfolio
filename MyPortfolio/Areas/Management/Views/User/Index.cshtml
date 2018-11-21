@@ -1,0 +1,57 @@
+﻿@model MyPortfolio.Models.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-right">
+            <a asp-action="Create" class="btn btn-info btn-fill">
+                <span class="ti-plus"></span>
+                Create a New User
+            </a>
+        </div>
+        <hr />
+        <div class="card">
+            <div class="header">
+                <h4 class="title">@ViewData["Title"]</h4>
+                <p class="category">Here are listing users.</p>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User Name</th>
+                            <th>E-Mail</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Users)
+                        {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.NormalizedUserName</td>
+                            <td>@item.NormalizedEmail</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Update/" + item.Id)" class="btn btn-info btn-simple btn-icon">
+                                    <i class="ti-reload"></i>
+                                </a>
+                                <a href="@Url.Action("Delete/" + item.Id)" class="btn btn-danger btn-simple btn-icon">
+                                    <i class="ti-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

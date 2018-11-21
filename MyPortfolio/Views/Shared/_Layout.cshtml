@@ -37,7 +37,14 @@
             <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
                 <div class="text-center">
                     <h1 id="colorlib-logo"><a href="index.html">Görkem Öztürk</a></h1>
-                    <span class="position">Software Engineer</span>
+                    <span class="position">
+                        Software Engineer
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="javascript: $('#logout').submit()">Logout</a>
+                            <form asp-antiforgery="true" id="logout" action="@Url.Action("Logout", "Account", new { area = "" })" method="post"></form>
+                        }
+                    </span>
                 </div>
                 <partial name="_NavigationPartial" />
                 <partial name="_FooterPartial" />
