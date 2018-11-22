@@ -1,6 +1,6 @@
-﻿@model MyPortfolio.Models.ApplicationUser
+﻿@model MyPortfolio.Models.Post
 @{
-    ViewData["Title"] = "Lock Out the Existing User";
+    ViewData["Title"] = "Delete the Post";
 }
 
 <div class="row">
@@ -12,32 +12,20 @@
             <div class="content">
                 <form class="post" asp-antiforgery="true">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label asp-for="FirstName"></label>
-                                <input readonly asp-for="FirstName" class="form-control border-input">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label asp-for="LastName"></label>
-                                <input readonly asp-for="LastName" class="form-control border-input">
+                                <label asp-for="Title"></label>
+                                <input readonly asp-for="Title" class="form-control border-input">
+                                <span asp-validation-for="Title" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label asp-for="Email"></label>
-                                <input readonly asp-for="Email" class="form-control border-input">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input disabled asp-for="IsAuthorized">
-                                <label asp-for="IsAuthorized"></label>
+                                <label asp-for="Body"></label>
+                                <textarea readonly asp-for="Body" rows="5" class="form-control border-input"></textarea>
+                                <span asp-validation-for="Body" class="text-danger"></span>
                             </div>
                         </div>
                     </div>

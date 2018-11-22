@@ -54,8 +54,12 @@
                     </div>
                     <hr />
                     <div class="">
-                        <button type="submit" class="btn btn-info btn-fill btn-wd">Save It</button>
-                        <a asp-action="Index" class="btn btn-default btn-fill btn-wd">Back To List</a>
+                        <a style="border-radius: 4px" asp-action="Index" class="btn btn-default btn-fill">
+                            <span class="ti-angle-left"></span>
+                        </a>
+                        <button style="border-radius: 4px" type="submit" class="btn btn-info btn-fill btn-wd">
+                            <span class="ti-save"></span>
+                        </button>
                     </div>
                     <div class="clearfix"></div>
                 </form>

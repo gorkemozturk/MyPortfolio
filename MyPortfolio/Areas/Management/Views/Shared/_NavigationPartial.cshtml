@@ -35,6 +35,12 @@
             <p>Users</p>
         </a>
     </li>
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Blog" ? "active" : "")">
+        <a asp-action="Index" asp-controller="Blog" asp-area="Management">
+            <i class="ti-align-center"></i>
+            <p>Blog Posts</p>
+        </a>
+    </li>
     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" ? "active" : "")">
         <a asp-action="Index" asp-controller="Contact" asp-area="Management">
             <i class="ti-pin-alt"></i>

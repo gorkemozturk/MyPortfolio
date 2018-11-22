@@ -1,30 +1,26 @@
-﻿@model IEnumerable<MyPortfolio.Models.Education>
+﻿@model IEnumerable<MyPortfolio.Models.Post>
 @{
-    ViewData["Title"] = "Education Knowledges";
+    ViewData["Title"] = "Posts";
 }
 
 <div class="row">
     <div class="col-md-12">
         <div class="text-right">
-            <div class="text-right">
-                <partial name="_CreateButtonPartial" />
-            </div>
+            <partial name="_CreateButtonPartial" />
         </div>
         <hr />
         <div class="card">
             <div class="header">
                 <h4 class="title">@ViewData["Title"]</h4>
-                <p class="category">Here are listing education knowledges.</p>
+                <p class="category">Here are listing blog posts.</p>
             </div>
             <div class="content table-responsive table-full-width">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">@Html.DisplayNameFor(e => e.Id)</th>
-                            <th>@Html.DisplayNameFor(e => e.InstituteName)</th>
-                            <th>@Html.DisplayNameFor(e => e.Degree)</th>
-                            <th class="text-center">@Html.DisplayNameFor(e => e.StartedAt)</th>
-                            <th class="text-center">@Html.DisplayNameFor(e => e.FinishedAt)</th>
+                            <th>@Html.DisplayNameFor(e => e.Title)</th>
+                            <th>@Html.DisplayNameFor(e => e.UserId)</th>
                             <th>@Html.DisplayNameFor(e => e.CreatedAt)</th>
                             <th class="text-center">Actions</th>
                         </tr>
@@ -34,16 +30,9 @@
                         {
                             <tr>
                                 <td class="text-center">@item.Id</td>
-                                <td>@item.InstituteName</td>
-                                <td>@item.Degree</td>
-                                <td class="text-center">@item.StartedAt.Year</td>
-                                <td class="text-center">
-                                    @if (item.FinishedAt.HasValue == true)
-                                    {
-                                        @item.FinishedAt.Value.Year
-                                    }
-                                </td>
-                                <td>@item.CreatedAt</td>
+                                <td>@item.Title</td>
+                                <td>@item.User.FirstName @item.User.LastName</td>
+                                <td>@item.CreatedAt.ToLongDateString()</td>
                                 <td class="text-center">
                                     <partial name="_ActionButtonsPartial" model="item.Id" />
                                 </td>
