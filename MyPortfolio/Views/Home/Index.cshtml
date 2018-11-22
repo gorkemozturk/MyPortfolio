@@ -1,9 +1,181 @@
-﻿@{ 
+﻿@model MyPortfolio.Models.ViewModels.Home.HomeViewModel
+@{ 
     ViewData["Title"] = "Welcome";
+    int counterForEducation = 0;
+    int counterForWork = 0;
 }
 
-@await (Component.InvokeAsync<MyPortfolio.ViewComponents.AboutViewComponent>())
-@await (Component.InvokeAsync<MyPortfolio.ViewComponents.EducationViewComponent>())
-@await (Component.InvokeAsync<MyPortfolio.ViewComponents.ExperienceViewComponent>())
-@await (Component.InvokeAsync<MyPortfolio.ViewComponents.WorkViewComponent>())
-@await (Component.InvokeAsync<MyPortfolio.ViewComponents.ContactViewComponent>())
+<section class="colorlib-about" data-section="about">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-12">
+                @foreach (var item in Model.Resumes)
+                {
+                    <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+                        <div class="col-md-12">
+                            <div class="about-desc">
+                                <span class="heading-meta">About Us</span>
+                                <h2 class="colorlib-heading">Who Am I?</h2>
+                                <p><strong>Hi I'm @item.FirstName @item.LastName</strong></p>
+                                <p>@item.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="hire">
+                                <h2>Here is my CV. You may download below.</h2>
+                                <a href="@item.CurriculumVitae" class="btn-hire">Download my CV</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="colorlib-education" data-section="education">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span class="heading-meta">Education</span>
+                <h2 class="colorlib-heading animate-box">Education</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                <div class="fancy-collapse-panel">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        @foreach (var item in Model.Educations)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="@Html.Raw("heading" + counterForEducation)">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="@Html.Raw("#collapse" + counterForEducation)" aria-expanded="true" aria-controls="@Html.Raw("collapse" + counterForEducation)">
+                                            @item.InstituteName (@item.StartedAt.Year-@if (item.FinishedAt.HasValue == false)
+                                            {@Html.Raw("Present") }
+                                        else
+                                        { @item.FinishedAt.Value.Year})
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="@Html.Raw("collapse" + counterForEducation)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("#heading" + counterForEducation)">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <strong>@item.InstituteName</strong> <br />
+                                                @item.Degree <br />
+                                                <small>Started At: @item.StartedAt.Year - Finished At: @if (item.FinishedAt.HasValue == false)
+                                                {@Html.Raw("Present") }
+                                            else
+                                            { @item.FinishedAt.Value.Year}</small>
+                                                <hr />
+                                                <p>@item.Body</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            counterForEducation++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="colorlib-experience" data-section="experience">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span class="heading-meta">Experience</span>
+                <h2 class="colorlib-heading animate-box">Work Experience</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="timeline-centered">
+                    @foreach (var item in Model.Experiences)
+                    {
+                        <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon color-none">
+                                </div>
+                                <div class="timeline-label">
+                                    <h2 style="margin: 0"><a>@item.Caption</a> <span class="pull-right">@item.StartedAt.Year-@if (item.FinishedAt.HasValue == false)
+                                    {@Html.Raw("Present") }
+                                else
+                                { @item.FinishedAt.Value.Year}</span></h2>
+                                    <h2><span>@item.InstituteName</span></h2>
+                                    <p>@item.Body</p>
+                                </div>
+                            </div>
+                        </article>
+
+                    }
+
+                    <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
+                        <div class="timeline-entry-inner">
+                            <div class="timeline-icon color-none">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="colorlib-education" data-section="work">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span class="heading-meta">Works</span>
+                <h2 class="colorlib-heading animate-box">Works</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                <div class="fancy-collapse-panel">
+                    <div class="panel-group" id="accordion-work" role="tablist" aria-multiselectable="true">
+                        @foreach (var item in Model.Works)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="@Html.Raw("heading-work" + counterForWork)">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion-work" href="@Html.Raw("#collapse-work" + counterForWork)" aria-expanded="true" aria-controls="@Html.Raw("collapse-work" + counterForWork)">
+                                            @item.Name (@item.Language)
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="@Html.Raw("collapse-work" + counterForWork)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@Html.Raw("#heading-work" + counterForWork)">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <strong>@item.Name</strong> <br />
+                                                @item.Language <br />
+                                                <small>Started At: @item.StartedAt.Year - Finished At: @if (item.FinishedAt.HasValue == false)
+                                                {@Html.Raw("Present") }
+                                            else
+                                            { @item.FinishedAt.Value.Year} </small>
+                                                <hr />
+                                                <p>@item.Body</p>
+                                                <p><strong>The Source</strong>: <a href="@item.Source">@item.Source</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            counterForWork++;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<partial name="_ContactPartial" model="Model.Contact" />
+
