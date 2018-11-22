@@ -1,0 +1,30 @@
+﻿@model MyPortfolio.Models.Contact
+@{
+    ViewData["Title"] = "Show the Message";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Index" class="btn btn-default btn-fill">
+            <span class="ti-angle-left"></span>
+            Back to List
+        </a>
+        <hr />
+        <div class="card">
+            <div class="header">
+                <h4 style="margin-top: 0" class="typo-line">@Model.Subject</h4>
+                <p class="category"><strong>From:</strong> @Model.Email - <strong>Created At:</strong> @Model.CreatedAt</p>
+            </div>
+            <hr />
+            <div class="content">
+                <p>@Model.Body</p>
+                <p><strong>@Model.Name</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

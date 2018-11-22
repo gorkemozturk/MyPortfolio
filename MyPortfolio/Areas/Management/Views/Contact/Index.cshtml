@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MyPortfolio.Models.Contact>
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">@ViewData["Title"]</h4>
+                <p class="category">Here are listing contacts.</p>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center">@Html.DisplayNameFor(e => e.Id)</th>
+                            <th>@Html.DisplayNameFor(e => e.Name)</th>
+                            <th>@Html.DisplayNameFor(e => e.Email)</th>
+                            <th>@Html.DisplayNameFor(e => e.Subject)</th>
+                            <th>@Html.DisplayNameFor(e => e.CreatedAt)</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Email</td>
+                                <td>@item.Subject</td>
+                                <td>@item.CreatedAt</td>
+                                <td class="text-center">
+                                    <a href="@Url.Action("Show/" + item.Id)" class="btn btn-info btn-simple btn-icon">
+                                        <i class="ti-eye"></i>
+                                    </a>
+                                    <a href="@Url.Action("Delete/" + item.Id)" class="btn btn-danger btn-simple btn-icon">
+                                        <i class="ti-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

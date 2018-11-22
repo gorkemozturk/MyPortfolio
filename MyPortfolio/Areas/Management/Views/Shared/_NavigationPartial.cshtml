@@ -13,13 +13,13 @@
     </li>
     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Education" ? "active" : "")">
         <a asp-action="Index" asp-controller="Education" asp-area="Management">
-            <i class="ti-pencil"></i>
+            <i class="ti-book"></i>
             <p>Education</p>
         </a>
     </li>
     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Experience" ? "active" : "")">
         <a asp-action="Index" asp-controller="Experience" asp-area="Management">
-            <i class="ti-medall"></i>
+            <i class="ti-ruler-pencil"></i>
             <p>Experiences</p>
         </a>
     </li>
@@ -33,6 +33,12 @@
         <a asp-action="Index" asp-controller="User" asp-area="Management">
             <i class="ti-user"></i>
             <p>Users</p>
+        </a>
+    </li>
+    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" ? "active" : "")">
+        <a asp-action="Index" asp-controller="Contact" asp-area="Management">
+            <i class="ti-pin-alt"></i>
+            <p>Contacts</p>
         </a>
     </li>
 </ul>
