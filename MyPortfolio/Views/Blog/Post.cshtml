@@ -1,0 +1,44 @@
+﻿@model MyPortfolio.Models.ViewModels.PostViewModel
+@{
+    ViewData["Title"] = @Model.Post.Title;
+}
+
+<section class="colorlib-blog">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span class="heading-meta">Read</span>
+                <h2 class="colorlib-heading">Blog Post</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+                    <div class="col-md-12">
+                        <partial name="_PostEntryPartial" model="Model.Post" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <h2 class="colorlib-heading">Comments</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 animate-box" data-animate-effect="fadeInRight">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-send-message">Send the Comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+}

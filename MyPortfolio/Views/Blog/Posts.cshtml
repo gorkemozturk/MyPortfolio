@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MyPortfolio.Models.Post>
+@{
+    ViewData["Title"] = "Blog Posts";
+}
+
+<style>
+    .blog-entry {
+        border-bottom: 1px solid #EEEEEE;
+    }
+    .blog-entry:last-child {
+        border-bottom: none;
+    }
+</style>
+
+<section class="colorlib-blog">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span class="heading-meta">Read</span>
+                <h2 class="colorlib-heading">All Blog Posts</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+                    <div class="col-md-12">
+                        @foreach (var item in Model)
+                        {
+                            <partial name="_PostEntryPartial" model="item" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

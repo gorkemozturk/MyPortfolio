@@ -1,0 +1,9 @@
+﻿@model MyPortfolio.Models.Post
+
+<div class="blog-entry">
+    <div class="desc">
+        <h3>@Html.ActionLink(Model.Title, "Post", "Blog", new { year = Model.CreatedAt.Year, month = Model.CreatedAt.Month, id = Model.Id })</h3>
+        <span><small>@Model.CreatedAt.ToShortDateString() </small> | <small>@Model.User.FirstName @Model.User.LastName</small></span>
+        <p>@Model.Body</p>
+    </div>
+</div>

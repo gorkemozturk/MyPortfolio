@@ -26,6 +26,7 @@ namespace MyPortfolio.Controllers
                 Educations = await _context.Educations.OrderBy(e => e.StartedAt).ToListAsync(),
                 Experiences = await _context.Experiences.OrderBy(e => e.StartedAt).ToListAsync(),
                 Works = await _context.Works.OrderBy(e => e.StartedAt).ToListAsync(),
+                Posts = await _context.Posts.Include(p => p.User).OrderByDescending(e => e.CreatedAt).ToListAsync(),
                 Contact = new Models.Contact()
             };
 

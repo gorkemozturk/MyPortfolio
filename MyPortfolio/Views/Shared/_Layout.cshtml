@@ -38,7 +38,7 @@
                 <div class="text-center">
                     <h1 id="colorlib-logo"><a href="index.html">Görkem Öztürk</a></h1>
                     <span class="position">
-                        Software Engineer
+                        Software Engineer <br />
                         @if (User.Identity.IsAuthenticated)
                         {
                             <a href="javascript: $('#logout').submit()">Logout</a>
@@ -46,7 +46,14 @@
                         }
                     </span>
                 </div>
-                <partial name="_NavigationPartial" />
+                @if (ViewContext.RouteData.Values["Controller"].ToString() == "Blog")
+                {
+                    <partial name="_BlogNavigationPartial" /> 
+                }
+                else
+                {
+                    <partial name="_NavigationPartial" />
+                }
                 <partial name="_FooterPartial" />
             </aside>
             <div id="colorlib-main">

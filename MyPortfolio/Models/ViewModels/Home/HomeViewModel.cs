@@ -11,6 +11,7 @@ namespace MyPortfolio.Models.ViewModels.Home
         public IEnumerable<Education> Educations { get; set; }
         public IEnumerable<Experience> Experiences { get; set; }
         public IEnumerable<Work> Works { get; set; }
+        public IEnumerable<Post> Posts { get; set; }
         public Contact Contact { get; set; }
     }
 }

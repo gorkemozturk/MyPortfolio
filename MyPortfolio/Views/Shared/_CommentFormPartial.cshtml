@@ -1,0 +1,11 @@
+﻿@model MyPortfolio.Models.Comment
+
+<form asp-antiforgery="true" method="post" asp-action="Create" asp-controller="Comment">
+    <div class="form-group">
+        <textarea class="form-control" cols="30" rows="10" placeholder="Comment" asp-for="Body"></textarea>
+        <span class="text-danger" asp-validation-for="Body"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-send-message">Send the Comment</button>
+    </div>
+</form>
