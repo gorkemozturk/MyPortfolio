@@ -18,7 +18,7 @@ namespace MyPortfolio.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Posts()
+        public async Task<IActionResult> Index()
         {
             var posts = await _context.Posts.Include(p => p.User).ToListAsync();
 
@@ -34,6 +34,8 @@ namespace MyPortfolio.Controllers
             PostViewModel model = new PostViewModel()
             {
                 Post = await _context.Posts.Include(p => p.User).FirstAsync(p => p.Id == id),
+                Comments = await _context.Comments.Where(c => c.PostId == id).Include(c => c.User).ToListAsync(),
+                Comment = new Models.Comment(),
             };
 
             return View(model);

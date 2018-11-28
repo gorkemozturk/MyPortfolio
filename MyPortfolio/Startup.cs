@@ -51,6 +51,11 @@ namespace MyPortfolio
 
             app.UseAuthentication();
 
+            app.UseHttpsRedirection();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -61,10 +66,6 @@ namespace MyPortfolio
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
         }
     }
 }
